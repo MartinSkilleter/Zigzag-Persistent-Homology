@@ -1,0 +1,85 @@
+\documentclass[12pt,a4paper]{amsart}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage[latin2]{inputenc}
+\usepackage{t1enc}
+\usepackage[mathscr]{eucal}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{pict2e}
+\usepackage{epic}
+\numberwithin{equation}{section}
+\usepackage[margin=2.9cm]{geometry}
+\usepackage{epstopdf} 
+
+ \def\numset#1{{\\mathbb #1}}
+
+ 
+
+\theoremstyle{plain}
+\newtheorem{Th}{Theorem}[section]
+\newtheorem{Lemma}[Th]{Lemma}
+\newtheorem{Cor}[Th]{Corollary}
+\newtheorem{Prop}[Th]{Proposition}
+
+ \theoremstyle{definition}
+\newtheorem{Def}[Th]{Definition}
+\newtheorem{Conj}[Th]{Conjecture}
+\newtheorem{Rem}[Th]{Remark}
+\newtheorem{?}[Th]{Problem}
+\newtheorem{Ex}[Th]{Example}
+
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Hom}{{\rm{Hom}}}
+\newcommand{\diam}{{\rm{diam}}}
+\newcommand{\ovl}{\overline}
+%\newcommand{\M}{\mathbb{M}}
+
+\begin{document}
+
+\title{Applications of Persistent Homology to Identify Clusters in Graphs }
+
+
+\author[]{M. Skilleter, K. Turner, M. Rizoiu}
+
+\address{Australian National University \\ Mathematical Sciences Institute} 
+
+
+\begin{abstract} We study practical applications of persistent homology to identifying bridges in graphs. These graphs arise when analysing social networks, where bridges represents users who are members of multiple communities. In this paper, we outline several variations on an algorithm that utilises persistent homology and a metric on persistence diagrams, called the Wasserstein Distance, to identify cluster points. We also provide a mathematical justification for the efficacy of this algorithm and discuss ways in which it can be optimised to be applied to large data sets.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction} Society is just beginning to see the effect of dedicated diffusers of malicious information. Private and state agencies are using platforms such as Facebook and Twitter to push their ideas, and the problem of identifying these information distributors is becoming more important. In this paper, we will demonstrate how techniques from the area of topological data analysis can be used to address this problem. Specifically, we will use ideas from persistent homology to identify bridges in graphs.
+
+The field of topological data analysis (TDA) has been rising in prominence since the start of the early 21st century. It utilises ideas from an area of mathematics called algebraic topology to draw inferences about large data sets. As it becomess more widespread, various programming languages have added support for TDA. A full implementation of our algorithm in the language Julia can be found at [insert link here], making use of the package Eirene.
+
+We will now give the important definitions, as well as state some useful theorems (without proof).
+
+\subsection{Graph Theory}
+
+A graph is a tuple $(V, E, \mu)$ with $V$ a set of vertices, $E$ a set of edges and $\mu : V \cup E \to \mathbb{R}_{\geq 0}$ a weight function. An edge between vertices $v_0$ and $v_1$ will be denoted by $(v_0, v_1)$. A graph is called \textit{undirected} if $(v_0, v_1) = (v_1, v_0)$ for every edge.
+
+An important example of a weight function is the \textit{shortest path} weight function, which can be computed using Djikstra's Algorithm. Fix a vertex $v$ and for any other vertex $w$, define $\mu(w)$ to be the length of the shortest path from $w$ to $v$. For an edge $(v_0, v_1)$, we define $\mu((v_0, v_1)) = \max\{\mu(v_0), \mu(v_1)\}$.
+
+The \textit{path-component} of a vertex $v$ is the subgraph of all vertices that can be reached from $v$. A graph is called \textit{connected} if it only has one path-component. Notice that if $v$ and $w$ are in different path components then the distance between them under the shortest path weight function is $\infty$.
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{hatcher} 
+
+\bibitem{wilk} David R. Wilkins: \textit{Getting started with Latex}, \begin{verbatim} http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/
+\end{verbatim}
+
+\bibitem{wiki} \begin{verbatim} http://en.wikibooks.org/wiki/LaTeX \end{verbatim}
+
+
+
+\end{thebibliography}
+
+\end{document}

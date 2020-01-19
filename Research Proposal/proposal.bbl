@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{chazal}
+Fr{\'e}d{\'e}ric {Chazal} and Bertrand {Michel}.
+\newblock {An introduction to Topological Data Analysis: fundamental and
+  practical aspects for data scientists}.
+\newblock {\em arXiv e-prints}, page arXiv:1710.04019, Oct 2017.
+
+\bibitem{tausz}
+Andrew Tausz and Gunnar Carlsson.
+\newblock Applications of zigzag persistence to topological data analysis.
+\newblock 08 2011.
+
+\end{thebibliography}
