@@ -1,11 +1,11 @@
-using Eirene, CSV, LinearAlgebra, SparseArrays, GraphPlot, LightGraphs
+using Eirene, CSV, LinearAlgebra, SparseArrays, GraphPlot, LightGraphs, Plots
 
 #= Yossi Bokor was instrumental in developing this code. He gave
 an explicit example, which I then abstracted =#
-cd("C:\\Users\\marty\\Downloads\\Zigzag Persistent Homology\\example_graphs_v2")
+cd("C:\\Users\\marty\\Downloads\\Zigzag Persistent Homology\\example_graphs")
 
 # compute adjacency matrix for graph from .txt file
-adjacency = convert(Matrix, CSV.read("graph_b.txt", header=false))
+adjacency = convert(Matrix, CSV.read("graph_1.txt", header=false))
 
 # number of 0-cells = vertices
 n = size(adjacency, 1)
@@ -115,12 +115,12 @@ function cluster(v, d, wd)
     end
 end
 
-function isClusterPointHelper(v, jumpSensitivity)
+function isClusterPointHelper(v)
     cumul = cumulativeBarcodes[v]
     lastBorn = size(cumul, 1)
     currentMax = cumul[1]
     for ρ = 2 : lastBorn
-        if cumul[ρ] >= jumpSensitivity * currentMax
+        if cumul[ρ] >= currentMax
             return((ρ-1, lastBorn))
         end
         currentMax = max(currentMax, cumul[ρ])
@@ -128,9 +128,28 @@ function isClusterPointHelper(v, jumpSensitivity)
     return((lastBorn, lastBorn))
 end
 
-function isClusterPoint2(v, jumpSensitivity, jumpLimit)
-    (jump, lastBorn) = isClusterPointHelper(v, jumpSensitivity)
+function isClusterPoint2(v, jumpLimit)
+    (jump, lastBorn) = isClusterPointHelper(v)
     return(jump < jumpLimit * lastBorn)
+end
+
+function findJumpLimit()
+    jumpLimit = 0.05
+    found = false
+    while !found
+        count = 0
+        for v = 1 : n
+            if isClusterPoint2(v, jumpLimit)
+                count += 1
+            end
+        end
+        if count > 0
+            found = true
+        else
+            jumpLimit += 0.05
+        end
+    end
+    return(jumpLimit)
 end
 
 #= plot the graph corresponding to the given adjacency matrix =#
@@ -138,10 +157,13 @@ function plotGraph()
     nodecolor = [GraphPlot.colorant"red", GraphPlot.colorant"blue"] # red for bridges, blue for cluster points
     nodelabel = [1 : n;]
 
+    jumpLimit = findJumpLimit()
+    println(jumpLimit)
+
     # identify the cluster points
     for v = 1 : n
-        if isClusterPoint2(v, 1, 0.21)
-            cluster(v, 4, 8)
+        if isClusterPoint2(v, jumpLimit)
+            cluster(v, 4, 23)
             clusterpoints[v] = 2
         end
     end
@@ -152,3 +174,8 @@ function plotGraph()
 end
 
 plotGraph()
+
+#= p = histogram(randn(1000))
+xlabel!("Time, t")
+ylabel!("Number of 1-cycles Born at Time t")
+display(p) =#
