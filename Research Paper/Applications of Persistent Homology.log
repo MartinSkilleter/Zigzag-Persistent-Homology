@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.8.7)  3 FEB 2020 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.8.7)  4 FEB 2020 12:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -104,17 +104,46 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@headsep=\skip50
 \dth@everypar=\toks24
 )
+(c:/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
+(c:/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+\lst@mode=\count100
+\lst@gtempboxa=\box30
+\lst@token=\toks26
+\lst@length=\count101
+\lst@currlwidth=\dimen114
+\lst@column=\count102
+\lst@pos=\count103
+\lst@lostspace=\dimen115
+\lst@width=\dimen116
+\lst@newlines=\count104
+\lst@lineno=\count105
+\lst@maxwidth=\dimen117
+
+(c:/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
+\c@lstnumber=\count106
+\lst@skipnumbers=\count107
+\lst@framebox=\box31
+)
+(c:/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/02/27 1.8b listings configuration
+))
+Package: listings 2019/02/27 1.8b (Carsten Heinz)
+
 (c:/texlive/2019/texmf-dist/tex/latex/amsmath/amscd.sty
 Package: amscd 2017/04/14 v2.1 AMS Commutative Diagrams
-\athelp@=\toks25
-\minaw@=\dimen114
-\bigaw@=\dimen115
-\minCDarrowwidth=\dimen116
+\athelp@=\toks27
+\minaw@=\dimen118
+\bigaw@=\dimen119
+\minCDarrowwidth=\dimen120
 )
 (c:/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks26
-\inpenc@posthook=\toks27
+\inpenc@prehook=\toks28
+\inpenc@posthook=\toks29
 
 (c:/texlive/2019/texmf-dist/tex/latex/base/latin2.def
 File: latin2.def 2018/08/11 v1.3c Input encoding file
@@ -133,10 +162,6 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 (c:/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks28
-)
 (c:/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
@@ -151,8 +176,8 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 (c:/texlive/2019/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen117
-\Gin@req@width=\dimen118
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
 )
 (c:/texlive/2019/texmf-dist/tex/latex/pict2e/pict2e.sty
 Package: pict2e 2016/02/05 v0.3b Improved picture commands (HjG,RN,JT)
@@ -166,28 +191,28 @@ Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 121.
 (c:/texlive/2019/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
 File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
-\pIIe@GRAPH=\toks29
-\@arclen=\dimen119
-\@arcrad=\dimen120
-\@tempdimd=\dimen121
+\pIIe@GRAPH=\toks30
+\@arclen=\dimen123
+\@arcrad=\dimen124
+\@tempdimd=\dimen125
 )
 (c:/texlive/2019/texmf-dist/tex/latex/eepic/epic.sty
 Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
-\@@multicnt=\count100
-\d@lta=\count101
-\@delta=\dimen122
-\@@delta=\dimen123
-\@gridcnt=\count102
-\@joinkind=\count103
-\@dotgap=\dimen124
-\@ddotgap=\dimen125
-\@x@diff=\count104
-\@y@diff=\count105
-\x@diff=\dimen126
-\y@diff=\dimen127
-\@dotbox=\box30
-\num@segments=\count106
-\num@segmentsi=\count107
+\@@multicnt=\count108
+\d@lta=\count109
+\@delta=\dimen126
+\@@delta=\dimen127
+\@gridcnt=\count110
+\@joinkind=\count111
+\@dotgap=\dimen128
+\@ddotgap=\dimen129
+\@x@diff=\count112
+\@y@diff=\count113
+\x@diff=\dimen130
+\y@diff=\dimen131
+\@dotbox=\box32
+\num@segments=\count114
+\num@segmentsi=\count115
 \@datafile=\read1
 ) (c:/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
@@ -202,18 +227,18 @@ Package ifvtex Info: VTeX not detected.
 (c:/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count108
-\Gm@cntv=\count109
-\c@Gm@tempcnt=\count110
-\Gm@bindingoffset=\dimen128
-\Gm@wd@mp=\dimen129
-\Gm@odd@mp=\dimen130
-\Gm@even@mp=\dimen131
-\Gm@layoutwidth=\dimen132
-\Gm@layoutheight=\dimen133
-\Gm@layouthoffset=\dimen134
-\Gm@layoutvoffset=\dimen135
-\Gm@dimlist=\toks30
+\Gm@cnth=\count116
+\Gm@cntv=\count117
+\c@Gm@tempcnt=\count118
+\Gm@bindingoffset=\dimen132
+\Gm@wd@mp=\dimen133
+\Gm@odd@mp=\dimen134
+\Gm@even@mp=\dimen135
+\Gm@layoutwidth=\dimen136
+\Gm@layoutheight=\dimen137
+\Gm@layouthoffset=\dimen138
+\Gm@layoutvoffset=\dimen139
+\Gm@dimlist=\toks31
 )
 (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
@@ -272,46 +297,48 @@ Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 )
-\c@Th=\count111
+\c@Th=\count119
 
 (./Applications of Persistent Homology.aux)
 \openout1 = `"Applications of Persistent Homology.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Try loading font information for U+msa on input line 104.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Try loading font information for U+msa on input line 105.
 
 (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 104.
+LaTeX Font Info:    Try loading font information for U+msb on input line 105.
 
 (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+\c@lstlisting=\count120
+
 (c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen136
-\scratchbox=\box31
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen137
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count121
+\scratchdimen=\dimen140
+\scratchbox=\box33
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen141
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks33
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -347,8 +374,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+
+Overfull \hbox (9.12381pt too wide) in paragraph at lines 122--123
+\T1/cmr/m/n/12 the lan-guage Ju-lia can be found at \T1/cmr/bx/n/12 https://git
+hub.com/OuroborosOfLife/Zigzag-
+ []
+
 [1{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (4.26485pt too wide) in paragraph at lines 163--164
+Overfull \hbox (4.26485pt too wide) in paragraph at lines 164--165
 \T1/cmr/bx/n/12 Theorem 1.2. \T1/cmr/m/it/12 Sup-pose $\OML/cmm/m/it/12 X$ \T1/
 cmr/m/it/12 is a graph with $\OML/cmm/m/it/12 m$ \T1/cmr/m/it/12 dis-tinct path
 -components. Then $\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/
@@ -356,7 +389,7 @@ cmr/m/n/12 ) =
  []
 
 
-Overfull \hbox (16.14552pt too wide) in paragraph at lines 171--172
+Overfull \hbox (16.14552pt too wide) in paragraph at lines 172--173
 \T1/cmr/bx/n/12 Theorem 1.3. \T1/cmr/m/it/12 The Eu-ler char-ac-ter-is-tic of a
  graph $\OML/cmm/m/it/12 X$ \T1/cmr/m/it/12 is also given by $\OML/cmm/m/it/12 
 ^^_ \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
@@ -370,35 +403,35 @@ File: ExampleFiltration.jpg Graphic file (type jpg)
 Package pdftex.def Info: ExampleFiltration.jpg  used on input line 185.
 (pdftex.def)             Requested size: 242.92468pt x 173.93407pt.
  [3 <./ExampleFiltration.jpg>]
-<Figure 1.jpg, id=28, 867.24pt x 380.622pt>
-File: Figure 1.jpg Graphic file (type jpg)
-<use Figure 1.jpg>
-Package pdftex.def Info: Figure 1.jpg  used on input line 209.
+<BridgesDistinguished.jpg, id=28, 867.24pt x 380.622pt>
+File: BridgesDistinguished.jpg Graphic file (type jpg)
+<use BridgesDistinguished.jpg>
+Package pdftex.def Info: BridgesDistinguished.jpg  used on input line 210.
 (pdftex.def)             Requested size: 433.61894pt x 190.31052pt.
 
-Overfull \hbox (1.1367pt too wide) in paragraph at lines 209--210
+Overfull \hbox (1.1367pt too wide) in paragraph at lines 210--211
  [][] 
  []
 
-[4 <./Figure 1.jpg>]
+[4 <./BridgesDistinguished.jpg>]
 <NeighbourhoodTest.jpg, id=34, 439.6425pt x 322.95656pt>
 File: NeighbourhoodTest.jpg Graphic file (type jpg)
 <use NeighbourhoodTest.jpg>
-Package pdftex.def Info: NeighbourhoodTest.jpg  used on input line 225.
+Package pdftex.def Info: NeighbourhoodTest.jpg  used on input line 227.
 (pdftex.def)             Requested size: 351.71446pt x 258.36559pt.
  [5 <./NeighbourhoodTest.jpg>]
 <AnnulusTest.jpg, id=38, 324.46219pt x 230.36063pt>
 File: AnnulusTest.jpg Graphic file (type jpg)
 <use AnnulusTest.jpg>
-Package pdftex.def Info: AnnulusTest.jpg  used on input line 237.
+Package pdftex.def Info: AnnulusTest.jpg  used on input line 240.
 (pdftex.def)             Requested size: 324.46138pt x 230.36005pt.
 <ColumnPlots.jpg, id=39, 738.1176pt x 227.8914pt>
 File: ColumnPlots.jpg Graphic file (type jpg)
 <use ColumnPlots.jpg>
-Package pdftex.def Info: ColumnPlots.jpg  used on input line 247.
+Package pdftex.def Info: ColumnPlots.jpg  used on input line 251.
 (pdftex.def)             Requested size: 479.77075pt x 148.12764pt.
 
-Overfull \hbox (47.28851pt too wide) in paragraph at lines 247--248
+Overfull \hbox (47.28851pt too wide) in paragraph at lines 251--252
  [][] 
  []
 
@@ -409,10 +442,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <InitialClusterPoints.jpg, id=43, 794.4882pt x 391.7034pt>
 File: InitialClusterPoints.jpg Graphic file (type jpg)
 <use InitialClusterPoints.jpg>
-Package pdftex.def Info: InitialClusterPoints.jpg  used on input line 265.
+Package pdftex.def Info: InitialClusterPoints.jpg  used on input line 270.
 (pdftex.def)             Requested size: 436.96986pt x 215.43753pt.
 
-Overfull \hbox (4.48763pt too wide) in paragraph at lines 265--266
+Overfull \hbox (4.48763pt too wide) in paragraph at lines 270--271
  [][] 
  []
 
@@ -420,49 +453,85 @@ Overfull \hbox (4.48763pt too wide) in paragraph at lines 265--266
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7 <./ColumnPlots.jpg>] [8 <./InitialClusterPoints.jpg>]
-<FiedlerClusterPoints.jpg, id=51, 787.743pt x 364.2408pt>
-File: FiedlerClusterPoints.jpg Graphic file (type jpg)
-<use FiedlerClusterPoints.jpg>
-Package pdftex.def Info: FiedlerClusterPoints.jpg  used on input line 300.
-(pdftex.def)             Requested size: 433.25998pt x 200.33305pt.
- [9 <./FiedlerClusterPoints.jpg>]
-<Multiclusters.jpg, id=57, 929.874pt x 223.5552pt>
+<Multiclusters.jpg, id=51, 929.874pt x 223.5552pt>
 File: Multiclusters.jpg Graphic file (type jpg)
 <use Multiclusters.jpg>
-Package pdftex.def Info: Multiclusters.jpg  used on input line 320.
-(pdftex.def)             Requested size: 464.93585pt x 111.77731pt.
+Package pdftex.def Info: Multiclusters.jpg  used on input line 297.
+(pdftex.def)             Requested size: 418.43942pt x 100.59889pt.
+<UpperBound.jpg, id=52, 593.0958pt x 489.027pt>
+File: UpperBound.jpg Graphic file (type jpg)
+<use UpperBound.jpg>
+Package pdftex.def Info: UpperBound.jpg  used on input line 310.
+(pdftex.def)             Requested size: 355.86021pt x 293.41846pt.
 
-Overfull \hbox (32.45361pt too wide) in paragraph at lines 320--321
- [][] 
- []
 
-[10 <./Multiclusters.jpg>] [11]
-Underfull \hbox (badness 6348) in paragraph at lines 339--340
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./Multiclusters.jpg>]
+<IdealBridges.jpg, id=56, 285.43614pt x 210.12958pt>
+File: IdealBridges.jpg Graphic file (type jpg)
+<use IdealBridges.jpg>
+Package pdftex.def Info: IdealBridges.jpg  used on input line 325.
+(pdftex.def)             Requested size: 228.34921pt x 168.10388pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 <./UpperBound.jpg>] [11 <./IdealBridges.jpg>]
+<FiedlerClusterPoints.jpg, id=64, 787.743pt x 364.2408pt>
+File: FiedlerClusterPoints.jpg Graphic file (type jpg)
+<use FiedlerClusterPoints.jpg>
+Package pdftex.def Info: FiedlerClusterPoints.jpg  used on input line 371.
+(pdftex.def)             Requested size: 433.25998pt x 200.33305pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13 <./FiedlerClusterPoints.jpg>] [14]
+Underfull \hbox (badness 6348) in paragraph at lines 392--393
 []\T1/cmr/m/n/10 A. Hatcher (2002). \T1/cmr/m/it/10 Al-ge-braic Topol-ogy\T1/cm
 r/m/n/10 . Cam-bridge Uni-ver-sity Press. Avail-able at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
 []\T1/cmr/m/n/10 B. Slininger. \T1/cmr/m/it/10 Fiedler's The-ory of Spec-tral G
 raph Par-ti-tion-ing\T1/cmr/m/n/10 . Avail-able at
  []
 
 
-Overfull \hbox (46.12727pt too wide) in paragraph at lines 343--344
+Overfull \hbox (46.12727pt too wide) in paragraph at lines 396--397
 \T1/cmr/bx/n/10 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.592.17
 30&rep=rep1&type=pdf\T1/cmr/m/n/10 . 
  []
 
-[12] (./Applications of Persistent Homology.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
+[]\T1/cmr/m/n/10 D. Spi-vak (2009). \T1/cmr/m/it/10 Higher-dimensional mod-els 
+of net-works\T1/cmr/m/n/10 . Avail-able at
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+[]\T1/cmr/m/n/10 S. Bha-tia, B. Chat-ter-jee, D. Nathani, M. Kaul (2018). \T1/c
+mr/m/it/10 Un-der-stand-ing and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+\T1/cmr/m/it/10 Pre-dict-ing Links in Graphs: A Per-sis-tent Ho-mol-ogy Per-spe
+c-tive\T1/cmr/m/n/10 . Avail-able at
+ []
+
+[15] (./Applications of Persistent Homology.aux) ) 
 Here is how much of TeX's memory you used:
- 3590 strings out of 492609
- 48055 string characters out of 6132819
- 131290 words of memory out of 5000000
- 7274 multiletter control sequences out of 15000+600000
+ 4947 strings out of 492609
+ 67359 string characters out of 6132819
+ 152274 words of memory out of 5000000
+ 8619 multiletter control sequences out of 15000+600000
  16546 words of font info for 49 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,9n,32p,1005b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,9n,32p,1411b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/f
 onts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2019/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/a
@@ -482,11 +551,11 @@ exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2019/texmf-dist/
 fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/type
 1/public/cm-super/sfti1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/c
 m-super/sfti1200.pfb>
-Output written on "Applications of Persistent Homology.pdf" (12 pages, 1815058 
+Output written on "Applications of Persistent Homology.pdf" (15 pages, 2480458 
 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 143 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
