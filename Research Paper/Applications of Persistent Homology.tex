@@ -17,6 +17,7 @@
 \usepackage{epstopdf} 
 \usepackage{graphicx}
 \usepackage{grffile}
+\usepackage{fancyhdr}
 
 \def\numset#1{{\\mathbb #1}}
 \def\R{{\mathbb R}}
@@ -102,6 +103,11 @@
 \newcommand{\ovl}{\overline}
 %\newcommand{\M}{\mathbb{M}}
 
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0pt}
+\lhead{}\chead{}\rhead{}
+\cfoot{\vspace*{1.5\baselineskip}\thepage}
+
 \begin{document}
 
 \title{Applications of Persistent Homology to Identifying Clusters in Graphs }
@@ -117,9 +123,11 @@
 
 \maketitle
 
-\section{Introduction} Society is just beginning to see the effect that a group of dedicated diffusers of malicious information can have. Private and state agencies are using platforms such as Twitter to push their ideas, and the problem of identifying these information distributors is becoming more important. In this paper, we will demonstrate how techniques from the area of topological data analysis can be used to address this problem. Specifically, we will use ideas from persistent homology to identify bridges in graphs.
+\section{Introduction} The effect that a group of dedicated diffusers of malicious information is just beginning to be recognised. Private and state agencies are using platforms such as Twitter and Facebook to push their ideas, and the problem of identifying these information distributors is becoming more important. In this paper, we will demonstrate how techniques from the area of topological data analysis can be used to address this problem. Specifically, we will use ideas from persistent homology to identify bridges in graphs.
 
-The field of topological data analysis (TDA) has been rising in prominence since the start of the 21st century. It utilises ideas from an area of mathematics called algebraic topology to draw inferences about large data sets by studying their structure when considered as a geometric object. As TDA becomes more widespread, various programming languages have added support. A full implementation of our algorithm in the language Julia can be found at \textbf{https://github.com/OuroborosOfLife/Zigzag-Persistent-Homology/blob/master/Code/classifyingBridges.jl}, making use of the package Eirene.
+The field of topological data analysis (TDA) has been rising in prominence since the start of the 21st century. It utilises ideas from an area of mathematics called algebraic topology to draw inferences about large data sets by studying their structure when considered as a geometric object. As TDA becomes more widespread, various programming languages have added support. A full implementation of our algorithm in the language Julia can be found at \small{\textbf{https://github.com/OuroborosOfLife/Zigzag-Persistent-Homology/blob/master/Code/classifyingBridges.jl}}, making use of the package Eirene.
+
+\section{Definitions and Underlying Theory}
 
 We will now give the important definitions, as well as state some important theorems without proof.
 
@@ -133,7 +141,7 @@ The \textit{path-component} of a vertex $v$ is the subgraph of all vertices that
 
 \subsection{Homology}
 
-We will only give definitions for homology in the case of a graph, but recognise that these definitions can be generalised to any space. For a completely general definition of homology, see \cite{hatcher}.
+We will only give definitions for homology in the case of a graph, but recognise that these definitions can be generalised to any space. For a completely general definition of homology and for proofs of relevant theorems, see \cite{hatcher}.
 
 For a graph $X = (V, E, \mu)$, we define two groups $C_0(X)$ and $C_1(X)$ by
 \begin{align*}
@@ -187,7 +195,7 @@ Using the shortest distance function defined earlier, we have a canonical way to
 	\label{filtration}
 \end{figure}
 
-Once we have a filtration, we can build what are called the persistence barcodes. There is a persistence barcode associated with each dimension $n$; the $n$-dimensional persistence barcode tracks the births and deaths of $n$-cycles (the elements of $H_n(X)$) as the filtration progresses. For example, because $H_0(X)$ measures path-components, the $0$-dimensional barcode tracks the births and deaths of path-components. This means that if two disjoint path-components become connected by a bridge at some stage in a filtration, one of the $0$-cycles will die at this stage. Because $H_1(X)$ measures $1$-dimensional holes, one can think of the $1$-dimensional persistence diagram as tracking the births and deaths of loops in $X$.
+Once we have a filtration, we can build what are called the persistence barcodes. A persistence barcode is a multiset of pairs $(b,d) \in (\R \cup \{\infty\})^2$ representing the birth and death times of an $n$-cycle (the elements of $H_n(X)$).  There is a persistence barcode associated with each dimension $n$; the $n$-dimensional persistence barcode tracks the births and deaths of $n$-cycles as the filtration progresses. For example, because $H_0(X)$ measures path-components, the $0$-dimensional barcode tracks the births and deaths of path-components. This means that if two disjoint path-components become connected by a bridge at some stage in a filtration, one of the $0$-cycles will die at this stage. Because $H_1(X)$ measures $1$-dimensional holes, one can think of the $1$-dimensional persistence diagram as tracking the births and deaths of loops in $X$. 
 
 One important feature which makes persistence diagrams so useful is that there is an associated metric, called the Wasserstein distance (in general this is only a pseudo-metric, but it will be a true metric for diagrams considered in this paper). The Wasserstein distance between two persistence diagrams $A$ and $B$ is given by
 \[W_{p,q}(A,B)= \inf_{\substack{\eta: A \to B \\ \mbox{a bijection}}} \left(\sum_{a \in A} \|| a-\eta(a)\||^p_q \right)^{1/p} \]
@@ -229,11 +237,11 @@ Continuing with this idea of locality, we describe our initial test for bridges 
 	\label{nbhdTest}
 \end{figure}
 
-While it is better to have false positives than to eliminate bridges, the neighbourhood test incorrectly identified a large number of cluster points as bridges. This problem can be resolved by taking a larger neighbourhood around each vertex, since removing $v$ from a larger neighbourhood is less likely to disconnect the graph. However, this method often eliminates parallel bridges such as those shown in Figure \ref{nbhdTest} because the parallel bridges are included in larger neighbourhoods, so removing $v$ no longer disconnects the graph.
+While it is better to have false positives than to eliminate bridges, the neighbourhood test incorrectly identified a large number of cluster points as bridges. This problem can be resolved by taking a larger neighbourhood around each vertex, since removing $v$ from a larger neighbourhood is less likely to disconnect the graph. However, this method often eliminates parallel bridges such as those shown in Figure \ref{nbhdTest} because the parallel bridges are included in larger neighbourhoods, so removing $v$ no longer disconnects the subgraph.
 
 One possible solution to this is to make the radius of the neighbourhood around each vertex dependent on $v$. This means that smaller radii can be chosen for parallel bridges to avoid the problem. However, there is no obvious way to choose a meaningful radius (doing so is almost identifying whether a vertex is a bridge or a cluster point). Instead, we introduce a generalisation of the neighbourhood test called the annulus test. 
 
-Define the closed annulus $\D(v,a,b) = \{w \in V \mid a \leq \mu_v(w) \leq b\}$. Rather than choosing a radius dependent on $v$ for use in the neighbourhood test, we will check if $\D(v,a,b)$ is disconnected for sufficiently many $a$ and $b$. Since the neighbourhood test applied to the neighbourhood of radius $r$ about $v$ is simply checking if $\D(v,1,r)$ is disconnected, the annulus test is a true generalisation. Figure \ref{annulTest} shows the results of the annulus test applied to an example graph.
+We define the closed annulus as $\D(v,a,b) = \{w \in V \mid a \leq \mu_v(w) \leq b\}$. Rather than choosing a radius dependent on $v$ for use in the neighbourhood test, we will check if $\D(v,a,b)$ is disconnected for sufficiently many $a$ and $b$. Since the neighbourhood test applied to the neighbourhood of radius $r$ about $v$ is simply checking if $\D(v,1,r)$ is disconnected, the annulus test is a true generalisation. Figure \ref{annulTest} shows the results of the annulus test applied to an example graph.
 
 \begin{figure}[h]
 	\centering
@@ -242,7 +250,7 @@ Define the closed annulus $\D(v,a,b) = \{w \in V \mid a \leq \mu_v(w) \leq b\}$.
 	\label{annulTest}
 \end{figure}
 
-While the annulus test was noticeably more accurate than the neighbourhood test, it still incorrectly identified some cluster points as bridges (such as those in the upper right of Figure \ref{annulTest}). This was surprising because, in general, the vertices which were classified incorrectly clearly belonged to clusters. To rectify this problem, the key observation was that the annulus test was not marking bridges as cluster points (it was only giving false positives). This meant that we could simply add further tests, now with the additional information of which nearby vertices were cluster points. 
+While the annulus test was more accurate than the neighbourhood test across a range of graphs (compare Figures \ref{nbhdTest} and \ref{annulTest}), it still incorrectly identified some cluster points as bridges (such as those in the upper right of Figure \ref{annulTest}). This was surprising because, in general, the vertices which were classified incorrectly clearly belonged to clusters. To rectify this problem, the key observation was that the annulus test was not marking bridges as cluster points (it was only giving false positives). This meant that we could simply add further tests, now with the additional information of which nearby vertices were cluster points. 
 
 By considering graphs such as Figure \ref{annulTest}, one might hope to find a meaningful way to say that two nearby vertices ``look similar'' so that if one has been identified as a cluster point then the other should be too. Persistent homology provides such a method by considering the persistence barcodes generated by the shortest path filtration. In a cluster, there are a large number of 1-cycles being born in quick succession because there is a high density of edges forming loops. For a bridge, though, there is an initial lull before a large number of births. Figure \ref{columnPlots} shows column plots for the number of 1-cycles born each time the filtration progresses one step further from $v$. The left diagram corresponds to a typical cluster point and the right to a bridge.
 
@@ -257,11 +265,11 @@ By considering graphs such as Figure \ref{annulTest}, one might hope to find a m
 
 The Wasserstein distance allows us to compare the $1$-dimensional persistence diagrams to find cluster points that may have been misidentified in our initial search for bridges. This is a significant simplification because it reduces our search to an extremal problem: we need only identify the vertices which are the most densely clustered and then use the Wasserstein distance to identify those neighbours which are also cluster points. 
 
-There is one problem with this approach, which is that highly symmetric graphs can generate similar persistence barcodes for vertices which are quite far apart. There are cases where the persistence diagrams corresponding to vertices can be very close under the Wasserstein distance even though the vertices themselves are separated in the graph. Worse, it has happened that two such vertices were identified when one lay at the edge of a cluster and the other was clearly a bridge. To address this, we only compare the persistence barcodes of vertices which are within a certain distance of one another. This has the added effect of reducing the number of Wasserstein distance calculations needed, which can be quite costly (see Discussion).
+There is one problem with this approach, which is that highly symmetric graphs can generate similar persistence barcodes for vertices which are quite far apart. There are cases where the persistence diagrams corresponding to vertices can be very close under the Wasserstein distance even though the vertices themselves are separated in the graph. Worse, it has happened that two such vertices were identified when one lay at the edge of a sparse cluster and the other was clearly a bridge. To address this, we only compare the persistence barcodes of vertices which are within a certain distance of one another. This has the added effect of reducing the number of Wasserstein distance calculations needed, which can be quite costly (see Discussion).
 
 \subsection{Identifying Initial Cluster Points}
 
-We now turn to the problem of finding vertices at the centres of clusters. The annulus test offers a partial solution but, in some cases, fails to identify any vertices if the cluster is densely connected (so that removing $v$ does not disconnect the neighbourhood). To motivate the following method, we return to the previous discussion about the times at which large numbers of 1-cycles are born. From Figure \ref{columnPlots}, one would expect the vertices at the centres of clusters to be those which have a large portion of the 1-cycles born early in the shortest path filtration. 
+We now turn to the problem of finding vertices at the centres of clusters. The annulus test offers a partial solution but, in some cases, fails to identify any vertices if the cluster is densely connected (so that removing the inner circle does not disconnect the annulus). To motivate the following method, we return to the previous discussion about the times at which large numbers of 1-cycles are born. From Figure \ref{columnPlots}, one would expect the vertices at the centres of clusters to be those which have a large portion of the 1-cycles born early in the shortest path filtration. 
 
 It is easy to compute the number of 1-cycles born at each stage of the filtration using the Euler characteristic method outlined earlier. We then mark vertices for which a large number of births occur sufficiently early as cluster points. Currently, ``sufficiently early'' is taken to mean that the largest portion of 1-cycles is born less than some fraction $q$ of the way through the filtration. This test is implemented in such a way that $q$ is as small as possible, meaning we start with the value $q=0.05$ and increment $q$ by $0.05$ until any initial cluster points are found. We then fix $q$ and stop searching for initial cluster points.
 
@@ -329,7 +337,7 @@ In general, this is a good value of $d$. For example, Figure \ref{ideald} shows 
 	
 \newpage
 	
-The obvious drawback to this method is that it requires knowing a bridge beforehand. To avoid this problem, we can compute the Wasserstein distance between \textit{all} pairs of vertices and choose the maximum value to be the diameter. As we mentioned earlier, the computation of Wasserstein distance is easily the most computationally expensive part of the algorithm. If the graph has $n$ vertices, using this method would means have to make $\frac{n(n-1)}{2}$ comparisons. However, if we store the results then we need not calculate them again once we know the value of $d$.
+The obvious drawback to this method is that it requires knowing a bridge beforehand. To avoid this problem, we can compute the Wasserstein distance between \textit{all} pairs of vertices and choose the maximum value to be the diameter. As we mentioned earlier, the computation of Wasserstein distance is easily the most computationally expensive part of the algorithm. If the graph has $n$ vertices, using this method would means making $\frac{n(n-1)}{2}$ comparisons. However, if we store the results then we need not calculate them again once we know the value of $d$.
 
 There is one other way to increase efficiency here, which is to exploit the fact that $W_{2,2}$ satisfies the Triangle Inequality. Suppose we are using the above method of comparing all pairs of vertices. We can keep a running maximum (call it $M$) to be used as the final value of the diameter. If we wish to take the Wasserstein distance between two diagrams $A$ and $C$, and we have already computed the values $W_{2,2}(A,B)$ and $W_{2,2}(B,C)$ for some third diagram $B$, we can use the Triangle Inequality
 \[ W_{2,2}(A,C) \leq W_{2,2}(A,B) + W_{2,2}(B,C) \]
@@ -338,7 +346,7 @@ to test if it is necessary to compute $W_{2,2}(A,C)$. If the right-hand side of 
 
 \section{Discussion}
 
-We will now discuss the accuracy to the algorithm, as well as some potential avenues for further research. Let us quickly summarise the algorithm for easy reference:
+We will now discuss the accuracy to the algorithm, as well as some potential avenues for further research. The algorithm is summarised here for easy reference:
 \begin{enumerate}
 	\item Identify initial cluster points by looking for vertices for which a large number of 1-cycles are born early in the shortest path filtration.
 	\item Choose an appropriate value of $d$ for use as the upper bound on the Wasserstein distance.
@@ -347,7 +355,7 @@ We will now discuss the accuracy to the algorithm, as well as some potential ave
 
 \newpage
 
-\subsection{Comparison with a Classical Clustering Method} To justify the use of 1-cycle birth times to identify initial cluster points, let us compare this test to a more classical method for clustering. We define the Laplacian matrix $L$ for a graph by the formula
+\subsection{Comparison with a Classical Clustering Method} To justify the use of 1-cycle birth times to identify initial cluster points, we compare this test to a more classical method for clustering. We define the Laplacian matrix $L$ for a graph by the formula
 \[ L_{i,j} = \begin{cases} \deg(v_i) & \mbox{if $i=j$} \\ -1 & \mbox{if $v_i$ is adjacent to $v_j$} \\ 0 & \mbox{otherwise} \end{cases} \]
 
 The matrix $L$ is symmetric and positive-semidefinite, so its eigenvalues are all real and non-negative. An easy result (see \cite{fiedler}) is that the multiplicity of the eigenvalue $\l = 0$ is exactly the number of path-components in $X$. By our assumption that $X$ is connected, this means that $\l = 0$ always has multiplicity $1$.
@@ -375,13 +383,22 @@ Thus this property is well-defined under scaling. To determine if our test using
 
 \newpage
 
-In general, the Fiedler vector identifies as many or more initial cluster points, as illustrated by comparing Figures \ref{birthTimesTest} and \ref{fiedlerTest}. In fact, not once across twenty test graphs did the 1-cycle test identify a vertex as a cluster point that the Fiedler vector did not. Unfortunately, there is no generalisation of the Fiedler vector for graphs with more than two clusters; it is a special feature of \textit{bipartitioning} a graph. However, that the 1-cycle test and the Fiedler vector agree in the two cluster case supports the accuracy of this method. Furthermore, if one chooses to reduce to the two cluster case, the Fiedler vector offers a method of refining the initial cluster points.
+In general, the Fiedler vector identifies as many or more initial cluster points, as illustrated by comparing Figures \ref{birthTimesTest} and \ref{fiedlerTest}. In fact, not once across twenty test graphs did the 1-cycle test identify a vertex as a cluster point that the Fiedler vector did not. Unfortunately, there is no generalisation of the Fiedler vector for graphs with more than two clusters; it is a special feature of \textit{bipartitioning} a graph. However, that the 1-cycle test and the Fiedler vector agree in the two cluster case supports the accuracy of our method. Furthermore, if one chooses to reduce to the two cluster case, the Fiedler vector offers a method of refining the initial cluster points.
 
-\subsection{Alternative Models for Social Networks} Much of this algorithm has been built around the use of the shortest path filtration. However, for use in identifying diffusers of information in social networks, there is at least one other filtration worth considering. This is called complex contagion, which relies on the idea that a frequently shared message will build momentum; it will go viral. Using complex contagion to model a social network gives rise to a weighted directed graph, where the value of the edge $(v_0,v_1)$ is the probability of $v_0$ sending a message to $v_1$. The fact that users who send more messages can be identified at the outset gives us a potential method for identifying initial cluster points.
+\subsection{Alternative Models for Social Networks} Much of this algorithm has been built around the use of the shortest path filtration. However, for use in identifying diffusers of information in social networks, there is at least one other filtration worth considering. This is called complex contagion, which relies on the idea that a frequently shared message will build momentum; it will go viral. Using complex contagion to model a social network gives rise to a weighted directed graph, where the value of the edge $(v_0,v_1)$ is the probability of $v_0$ sending a message to $v_1$. 
 
-For a given vertex $v$, we still have an associated filtration constructed in the same way as the shortest path filtration. The problem in using this filtration lies in the fact that the graph $X$ is directed: homology theory is developed in the language of topological spaces which have no concept of direction. Thus much of the underlying theory of persistent homology (such as the existence of the persistence barcode) is lost. We can rectify this by assuming that the probability of $a$ contacting $b$ is the same as $b$ contacting $a$, giving rise to a weighted, but undirected, graph that our algorithm can be applied to. The use of the complex contagion filtration is not one that we have tested, but it would certainly worth be considering in the future. 
+For a given vertex $v$, we still have an associated filtration constructed in the same way as the shortest path filtration. The problem in using this filtration lies in the fact that the graph $X$ is directed: homology theory is developed in the language of topological spaces which have no concept of direction. Thus much of the underlying theory of persistent homology (such as the existence of the persistence barcode) is lost. We can rectify this by assuming that the probability of $a$ contacting $b$ is the same as $b$ contacting $a$, giving rise to a weighted, but undirected, graph that our algorithm can be applied to. The use of the complex contagion filtration is not one that we have tested, but it would certainly be worth considering in the future. 
 
-There are also methods for building higher-dimensional models for social networks (see \cite{highdim}). Currently, the groups $H_0(X)$ and $H_1(X)$ are the only non-zero homology (in this paper, we defined them this way but it is actually a non-trivial result relying on the fact that $X$ is what is known as a cellular complex). A higher-dimensional model would allow for non-trivial higher homology groups, giving us more information about the geometric structure of $X$. The largest potential problem with this is that we could no longer use the Euler characteristic to compute homology. The formula for the Euler characteristic does generalise as an alternating sum of the ranks of homology groups, but we no longer have equally many equations as unknowns. There are other methods for computing persistence barcodes (one such is implemented in Julia via Eirene) but these tend to scale linearly or quadratically, as opposed to being constant time. On a graph with many vertices, this represents a significant decrease in efficiency. Should a higher-dimensional model be used, making Wasserstein distance computations across multiple dimensions would likely refine the ability to find other cluster points given an initial set, because a cluster could be considered as a higher-dimensional object while a bridge would generally just be 1-dimensional.
+There are also methods for building higher-dimensional models for social networks (see \cite{highdim}). Currently, the groups $H_0(X)$ and $H_1(X)$ are the only non-zero homology (in this paper, we defined them this way but it is actually a non-trivial result relying on the fact that $X$ is what is known as a cellular complex). A higher-dimensional model would allow for non-trivial higher homology groups, giving us more information about the geometric structure of $X$. The largest potential problem with this is that we could no longer use the Euler characteristic to compute homology. The formula for the Euler characteristic does generalise as an alternating sum of the ranks of homology groups, but we no longer have equally many equations as unknowns. There are other methods for computing persistence barcodes (one such is implemented in Julia via Eirene) but these tend to scale linearly or quadratically, as opposed to being constant time. On a graph with many vertices, this represents a significant decrease in efficiency. Should a higher-dimensional model be used, making Wasserstein distance computations across multiple dimensions of persistence barcodes would likely refine the ability to find other cluster points given an initial set, because a cluster could be considered as a higher-dimensional object while a bridge would generally just be 1-dimensional.
+
+\subsection{Closing Remarks}
+
+In this paper, we have developed an algorithm which identifies bridges in graphs. This algorithm provides a method for identifying diffusers of malicious information over social media by modeling networks as graphs and identifying the bridges in these graphs as diffusers.
+
+By partitioning the vertices of the graph into clusters and bridges, we have solved the equivalent problem of identifying cluster points. These can be found by considering the births of 1-cycles, leading naturally to the use of persistence barcodes and persistent homology in general. Comparison with an existing clustering method shows that our algorithm gives reasonable results. The complexity of our algorithm is quadratic in the number of vertices, so it is more scaleable to large data sets than existing methods of clustering (see \cite{spectral}). 
+
+Overall, our algorithm provides a novel solution to the problem of identifying bridges in graphs which is both accurate and efficient.
+
 
 
 
@@ -398,6 +415,8 @@ There are also methods for building higher-dimensional models for social network
 \bibitem{highdim} D. Spivak (2009). \textit{Higher-dimensional models of networks}. Available at \textbf{https://arxiv.org/abs/0909.4314}.
 
 \bibitem{graphlinks} S. Bhatia, B. Chatterjee, D. Nathani, M. Kaul (2018). \textit{Understanding and Predicting Links in Graphs: A Persistent Homology Perspective}. Available at \textbf{https://arxiv.org/abs/1811.04049}.
+
+\bibitem{spectral} D. Yan, L. Huang, M. Jordan. \textit{Fast Approximate Spectral Clustering}. Available at \textbf{https://people.eecs.berkeley.edu/~jordan/papers/yan-etal-long.pdf}.
 
 \end{thebibliography}
 

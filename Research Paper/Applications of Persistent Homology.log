@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.8.7)  4 FEB 2020 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.8.7)  7 FEB 2020 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,29 +297,42 @@ Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 )
+(c:/texlive/2019/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip51
+\f@nch@O@elh=\skip52
+\f@nch@O@erh=\skip53
+\f@nch@O@olh=\skip54
+\f@nch@O@orh=\skip55
+\f@nch@O@elf=\skip56
+\f@nch@O@erf=\skip57
+\f@nch@O@olf=\skip58
+\f@nch@O@orf=\skip59
+)
 \c@Th=\count119
 
 (./Applications of Persistent Homology.aux)
 \openout1 = `"Applications of Persistent Homology.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Try loading font information for U+msa on input line 105.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Try loading font information for U+msa on input line 111.
 
 (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 105.
+LaTeX Font Info:    Try loading font information for U+msb on input line 111.
 
 (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -374,64 +387,49 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-Overfull \hbox (9.12381pt too wide) in paragraph at lines 122--123
-\T1/cmr/m/n/12 the lan-guage Ju-lia can be found at \T1/cmr/bx/n/12 https://git
-hub.com/OuroborosOfLife/Zigzag-
- []
-
 [1{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (4.26485pt too wide) in paragraph at lines 164--165
-\T1/cmr/bx/n/12 Theorem 1.2. \T1/cmr/m/it/12 Sup-pose $\OML/cmm/m/it/12 X$ \T1/
-cmr/m/it/12 is a graph with $\OML/cmm/m/it/12 m$ \T1/cmr/m/it/12 dis-tinct path
--components. Then $\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/
-cmr/m/n/12 ) =
- []
 
-
-Overfull \hbox (16.14552pt too wide) in paragraph at lines 172--173
-\T1/cmr/bx/n/12 Theorem 1.3. \T1/cmr/m/it/12 The Eu-ler char-ac-ter-is-tic of a
- graph $\OML/cmm/m/it/12 X$ \T1/cmr/m/it/12 is also given by $\OML/cmm/m/it/12 
-^^_ \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
-X\OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 ^^@
- []
+Package Fancyhdr Warning: \headheight is too small (8.0pt): 
+Make it at least 14.0pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
 
 [2]
-<ExampleFiltration.jpg, id=24, 303.65546pt x 217.41731pt>
+<ExampleFiltration.jpg, id=27, 303.65546pt x 217.41731pt>
 File: ExampleFiltration.jpg Graphic file (type jpg)
 <use ExampleFiltration.jpg>
-Package pdftex.def Info: ExampleFiltration.jpg  used on input line 185.
+Package pdftex.def Info: ExampleFiltration.jpg  used on input line 193.
 (pdftex.def)             Requested size: 242.92468pt x 173.93407pt.
  [3 <./ExampleFiltration.jpg>]
-<BridgesDistinguished.jpg, id=28, 867.24pt x 380.622pt>
+<BridgesDistinguished.jpg, id=31, 867.24pt x 380.622pt>
 File: BridgesDistinguished.jpg Graphic file (type jpg)
 <use BridgesDistinguished.jpg>
-Package pdftex.def Info: BridgesDistinguished.jpg  used on input line 210.
+Package pdftex.def Info: BridgesDistinguished.jpg  used on input line 218.
 (pdftex.def)             Requested size: 433.61894pt x 190.31052pt.
 
-Overfull \hbox (1.1367pt too wide) in paragraph at lines 210--211
+Overfull \hbox (1.1367pt too wide) in paragraph at lines 218--219
  [][] 
  []
 
 [4 <./BridgesDistinguished.jpg>]
-<NeighbourhoodTest.jpg, id=34, 439.6425pt x 322.95656pt>
+<NeighbourhoodTest.jpg, id=37, 439.6425pt x 322.95656pt>
 File: NeighbourhoodTest.jpg Graphic file (type jpg)
 <use NeighbourhoodTest.jpg>
-Package pdftex.def Info: NeighbourhoodTest.jpg  used on input line 227.
+Package pdftex.def Info: NeighbourhoodTest.jpg  used on input line 235.
 (pdftex.def)             Requested size: 351.71446pt x 258.36559pt.
  [5 <./NeighbourhoodTest.jpg>]
-<AnnulusTest.jpg, id=38, 324.46219pt x 230.36063pt>
+<AnnulusTest.jpg, id=41, 324.46219pt x 230.36063pt>
 File: AnnulusTest.jpg Graphic file (type jpg)
 <use AnnulusTest.jpg>
-Package pdftex.def Info: AnnulusTest.jpg  used on input line 240.
+Package pdftex.def Info: AnnulusTest.jpg  used on input line 248.
 (pdftex.def)             Requested size: 324.46138pt x 230.36005pt.
-<ColumnPlots.jpg, id=39, 738.1176pt x 227.8914pt>
+<ColumnPlots.jpg, id=42, 738.1176pt x 227.8914pt>
 File: ColumnPlots.jpg Graphic file (type jpg)
 <use ColumnPlots.jpg>
-Package pdftex.def Info: ColumnPlots.jpg  used on input line 251.
+Package pdftex.def Info: ColumnPlots.jpg  used on input line 259.
 (pdftex.def)             Requested size: 479.77075pt x 148.12764pt.
 
-Overfull \hbox (47.28851pt too wide) in paragraph at lines 251--252
+Overfull \hbox (47.28851pt too wide) in paragraph at lines 259--260
  [][] 
  []
 
@@ -439,123 +437,134 @@ Overfull \hbox (47.28851pt too wide) in paragraph at lines 251--252
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6 <./AnnulusTest.jpg>]
-<InitialClusterPoints.jpg, id=43, 794.4882pt x 391.7034pt>
+<InitialClusterPoints.jpg, id=46, 794.4882pt x 391.7034pt>
 File: InitialClusterPoints.jpg Graphic file (type jpg)
 <use InitialClusterPoints.jpg>
-Package pdftex.def Info: InitialClusterPoints.jpg  used on input line 270.
+Package pdftex.def Info: InitialClusterPoints.jpg  used on input line 278.
 (pdftex.def)             Requested size: 436.96986pt x 215.43753pt.
 
-Overfull \hbox (4.48763pt too wide) in paragraph at lines 270--271
+Overfull \hbox (4.48763pt too wide) in paragraph at lines 278--279
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./ColumnPlots.jpg>] [8 <./InitialClusterPoints.jpg>]
-<Multiclusters.jpg, id=51, 929.874pt x 223.5552pt>
+[7 <./ColumnPlots.jpg>]
+<Multiclusters.jpg, id=52, 929.874pt x 223.5552pt>
 File: Multiclusters.jpg Graphic file (type jpg)
 <use Multiclusters.jpg>
-Package pdftex.def Info: Multiclusters.jpg  used on input line 297.
+Package pdftex.def Info: Multiclusters.jpg  used on input line 305.
 (pdftex.def)             Requested size: 418.43942pt x 100.59889pt.
-<UpperBound.jpg, id=52, 593.0958pt x 489.027pt>
+ [8 <./InitialClusterPoints.jpg>]
+<UpperBound.jpg, id=56, 593.0958pt x 489.027pt>
 File: UpperBound.jpg Graphic file (type jpg)
 <use UpperBound.jpg>
-Package pdftex.def Info: UpperBound.jpg  used on input line 310.
+Package pdftex.def Info: UpperBound.jpg  used on input line 318.
 (pdftex.def)             Requested size: 355.86021pt x 293.41846pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./Multiclusters.jpg>]
-<IdealBridges.jpg, id=56, 285.43614pt x 210.12958pt>
+<IdealBridges.jpg, id=60, 285.43614pt x 210.12958pt>
 File: IdealBridges.jpg Graphic file (type jpg)
 <use IdealBridges.jpg>
-Package pdftex.def Info: IdealBridges.jpg  used on input line 325.
+Package pdftex.def Info: IdealBridges.jpg  used on input line 333.
 (pdftex.def)             Requested size: 228.34921pt x 168.10388pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [10 <./UpperBound.jpg>] [11 <./IdealBridges.jpg>]
-<FiedlerClusterPoints.jpg, id=64, 787.743pt x 364.2408pt>
+<FiedlerClusterPoints.jpg, id=69, 787.743pt x 364.2408pt>
 File: FiedlerClusterPoints.jpg Graphic file (type jpg)
 <use FiedlerClusterPoints.jpg>
-Package pdftex.def Info: FiedlerClusterPoints.jpg  used on input line 371.
+Package pdftex.def Info: FiedlerClusterPoints.jpg  used on input line 379.
 (pdftex.def)             Requested size: 433.25998pt x 200.33305pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12] [13 <./FiedlerClusterPoints.jpg>] [14]
-Underfull \hbox (badness 6348) in paragraph at lines 392--393
+Underfull \hbox (badness 6348) in paragraph at lines 409--410
 []\T1/cmr/m/n/10 A. Hatcher (2002). \T1/cmr/m/it/10 Al-ge-braic Topol-ogy\T1/cm
 r/m/n/10 . Cam-bridge Uni-ver-sity Press. Avail-able at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
 []\T1/cmr/m/n/10 B. Slininger. \T1/cmr/m/it/10 Fiedler's The-ory of Spec-tral G
 raph Par-ti-tion-ing\T1/cmr/m/n/10 . Avail-able at
  []
 
 
-Overfull \hbox (46.12727pt too wide) in paragraph at lines 396--397
+Overfull \hbox (46.12727pt too wide) in paragraph at lines 413--414
 \T1/cmr/bx/n/10 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.592.17
 30&rep=rep1&type=pdf\T1/cmr/m/n/10 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 []\T1/cmr/m/n/10 D. Spi-vak (2009). \T1/cmr/m/it/10 Higher-dimensional mod-els 
 of net-works\T1/cmr/m/n/10 . Avail-able at
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 []\T1/cmr/m/n/10 S. Bha-tia, B. Chat-ter-jee, D. Nathani, M. Kaul (2018). \T1/c
 mr/m/it/10 Un-der-stand-ing and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 \T1/cmr/m/it/10 Pre-dict-ing Links in Graphs: A Per-sis-tent Ho-mol-ogy Per-spe
 c-tive\T1/cmr/m/n/10 . Avail-able at
  []
 
+
+Underfull \hbox (badness 2644) in paragraph at lines 419--420
+[]\T1/cmr/m/n/10 D. Yan, L. Huang, M. Jor-dan. \T1/cmr/m/it/10 Fast Ap-prox-i-m
+ate Spec-tral Clus-ter-ing\T1/cmr/m/n/10 . Avail-able at
+ []
+
 [15] (./Applications of Persistent Homology.aux) ) 
 Here is how much of TeX's memory you used:
- 4947 strings out of 492609
- 67359 string characters out of 6132819
- 152274 words of memory out of 5000000
- 8619 multiletter control sequences out of 15000+600000
- 16546 words of font info for 49 fonts, out of 8000000 for 9000
+ 5092 strings out of 492609
+ 69076 string characters out of 6132819
+ 154253 words of memory out of 5000000
+ 8757 multiletter control sequences out of 15000+600000
+ 20327 words of font info for 58 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,9n,32p,1411b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,10n,43p,1438b,256s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/f
 onts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2019/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/a
 msfonts/cmextra/cmex8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:
-/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msbm10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
-cm-super/sfbx1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/s
-fbx1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pf
-b><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texl
-ive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2019/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2019/texmf-dist/
-fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2019/texmf-dist/fonts/type
-1/public/cm-super/sfti1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/c
-m-super/sfti1200.pfb>
-Output written on "Applications of Persistent Homology.pdf" (15 pages, 2480458 
+ts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c
+:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1000.p
+fb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/tex
+live/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2019/
+texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><c:/texlive/2019/texmf-dist
+/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2019/texmf-dist/fonts/typ
+e1/public/cm-super/sfcc1200.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/
+cm-super/sfrm0900.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/s
+frm1000.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pf
+b><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texl
+ive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2019/t
+exmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on "Applications of Persistent Homology.pdf" (15 pages, 2527978 
 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 164 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

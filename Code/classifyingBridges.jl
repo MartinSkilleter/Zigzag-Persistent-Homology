@@ -1,11 +1,11 @@
-using Eirene, CSV, LinearAlgebra, SparseArrays, GraphPlot, LightGraphs, Plots
+using Eirene, CSV, LinearAlgebra, SparseArrays, GraphPlot, LightGraphs
 
 #= Yossi Bokor was instrumental in developing this code. He gave
 an explicit example, which I then abstracted =#
-cd("C:\\Users\\marty\\Downloads\\Zigzag Persistent Homology\\example_graphs")
+cd("C:\\Users\\marty\\Downloads\\Zigzag Persistent Homology\\example_graphs_v2")
 
 # compute adjacency matrix for graph from .txt file
-adjacency = convert(Matrix, CSV.read("graph_1.txt", header=false))
+adjacency = convert(Matrix, CSV.read("graph_a.txt", header=false))
 
 # number of 0-cells = vertices
 n = size(adjacency, 1)
@@ -17,7 +17,11 @@ end
 
 G = Graph(adjacency)
 
+# number of edges in G
 e = ne(G)
+
+# total number of 1-cycles computed using Euler characteristic
+l = 1 - n + e
 
 # construct the Laplacian matrix
 L = zeros(n, n)
@@ -41,15 +45,15 @@ end
 v_i =#
 dists = []
 
-#= a list of dictionary. The i^th entry is the dictionary corresponding to the
+#= a list of dictionaries. The i^th entry is the dictionary corresponding to the
 vertex v_i, which takes a distance d as a key and returns a list of vertices
 of distance d from v_i =#
 distdict = []
 
-#= Define the distance function f : X → ℝ as follows:
-fix a vertex v ∈ X. For any vertex w ∈ X, f(w) is the length
+#= Define the distance function μ_v : X → ℝ as follows:
+fix a vertex v ∈ X. For any vertex w ∈ X, μ_v(w) is the length
 of the shortest path from w to v (computed using Dijkstra's Algorithm
-from the Graphs package). For an edge (a,b), f((a,b)) = max{f(a), f(b)}.
+from the Graphs package). For an edge (a,b), μ_v((a,b)) = max{μ_v(a), μ_v(b)}.
 We are using max so that we can consider sublevelsets i.e. go from -∞
 to some real value. =#
 
@@ -70,7 +74,8 @@ end
 
 # list of the 1-dimensional persistence barcodes
 barcodes = []
-# list of the cumulative 1-dim. cycles born for each vertex
+#=  a matrix where the i^th column is a list associated to vertex v_i. The
+entries say how many 1-cycles are born in each stage of the filtration. =#
 cumulativeBarcodes = []
 
 # given the vertex v, generate the 1-dimensional barcode
@@ -102,6 +107,29 @@ end
 
 clusterpoints = ones(Int64, n) # 1 for bridges, 2 for cluster points
 
+#= in the particular case of the shortest path filtration, the Wasserstein
+distance between 1-dim. persistence barcodes is always the l2 norm between
+the birth columns =#
+function l2norm(bar1, bar2)
+    d = 0.0
+    for i = 1 : l
+        d += (bar1[i, 1] - bar2[i, 1])^2
+    end
+    return(sqrt(d))
+end
+
+#= matrix of Wasserstein distances, where entry (i, j) is the Wasserstein distance
+between the 1-dim. persistence barcodes corresponding to vertices v_i and v_j =#
+wassDists = zeros(Float64, n, n)
+global diam = 0.0
+
+for i = 1 : n
+    for j = i : n
+        wassDists[i, j] = wassDists[j, i] = l2norm(barcodes[i], barcodes[j])
+        global diam = max(diam, wassDists[i, j])
+    end
+end
+
 #= given a vertex v known to be a cluster point, look at the neighbourhood of v
 consisting of all vertices distance <= d from v. For a given vertex w, if the
 Wasserstein distance between their 1-dimensional persistence diagrams is <= wd
@@ -109,7 +137,7 @@ then call w also a cluster point =#
 function cluster(v, d, wd)
     vertices = neighborhood(G, v, d)
     for w in vertices
-        if clusterpoints[w] == 1 && wasserstein_distance(barcodes[v], barcodes[w]) <= wd
+        if wassDists[v, w] <= wd
             clusterpoints[w] = 2
         end
     end
@@ -163,19 +191,13 @@ function plotGraph()
     # identify the cluster points
     for v = 1 : n
         if isClusterPoint2(v, jumpLimit)
-            cluster(v, 4, 23)
+            cluster(v, 4, 30)
             clusterpoints[v] = 2
         end
     end
-
     nodefillc = nodecolor[clusterpoints]
 
     gplot(G, nodelabel = nodelabel, nodefillc = nodefillc)
 end
 
 plotGraph()
-
-#= p = histogram(randn(1000))
-xlabel!("Time, t")
-ylabel!("Number of 1-cycles Born at Time t")
-display(p) =#

@@ -103,3 +103,42 @@ function nbhdTest()
 end
 
 nbhdTest()
+
+global heatmap = zeros(Float64, n)
+
+function isClusterPoint2(v, jumpLimit)
+    (jump, lastBorn) = isClusterPointHelper(v)
+    heatmap[v] = jump / lastBorn
+    return(jump < jumpLimit * lastBorn)
+end
+
+function plotGraph()
+    nodecolor = [GraphPlot.colorant"red", GraphPlot.colorant"blue"] # red for bridges, blue for cluster points
+    nodelabel = [1 : n;]
+
+    jumpLimit = findJumpLimit()
+    println(jumpLimit)
+
+    # identify the cluster points
+    for v = 1 : n
+        if isClusterPoint2(v, jumpLimit)
+            #cluster(v, 4, 23)
+            clusterpoints[v] = 2
+        end
+    end
+
+    #nodefillc = nodecolor[clusterpoints]
+    nodefillc = []
+
+    M = maximum(heatmap)
+
+
+    for i = 1 : n
+        heatmap[i] /= M
+        push!(nodefillc, RGBA(heatmap[i], 0, 2*(1-heatmap[i])))
+    end
+
+    gplot(G, nodelabel = nodelabel, nodefillc = nodefillc)
+end
+
+plotGraph()
