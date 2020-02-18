@@ -5,7 +5,7 @@ an explicit example, which I then abstracted =#
 cd("C:\\Users\\marty\\Downloads\\Zigzag Persistent Homology\\example_graphs_v2")
 
 # compute adjacency matrix for graph from .txt file
-adjacency = convert(Matrix, CSV.read("graph_a.txt", header=false))
+adjacency = convert(Matrix, CSV.read("graph_c.txt", header=false))
 
 # number of 0-cells = vertices
 n = size(adjacency, 1)
@@ -23,24 +23,6 @@ e = ne(G)
 # total number of 1-cycles computed using Euler characteristic
 l = 1 - n + e
 
-# construct the Laplacian matrix
-L = zeros(n, n)
-for i = 1 : n
-    L[i, i] = degree(G, i)
-end
-
-L -= adjacency
-
-eigenDecomp = eigen(L)
-spectralGap = eigenDecomp.values[2]
-Fiedler = eigenDecomp.vectors[:,2]
-
-avg = sum(abs, Fiedler) / n
-
-function isClusterPoint(v)
-    return(abs(Fiedler[v]) > avg)
-end
-
 #= a matrix where the i^th column represents the Djikstra distances from vertex
 v_i =#
 dists = []
@@ -56,7 +38,6 @@ of the shortest path from w to v (computed using Dijkstra's Algorithm
 from the Graphs package). For an edge (a,b), μ_v((a,b)) = max{μ_v(a), μ_v(b)}.
 We are using max so that we can consider sublevelsets i.e. go from -∞
 to some real value. =#
-
 for v = 1 : n
     ds = dijkstra_shortest_paths(G, v)
     push!(dists, ds)
@@ -74,6 +55,7 @@ end
 
 # list of the 1-dimensional persistence barcodes
 barcodes = []
+
 #=  a matrix where the i^th column is a list associated to vertex v_i. The
 entries say how many 1-cycles are born in each stage of the filtration. =#
 cumulativeBarcodes = []
@@ -88,9 +70,11 @@ function generateOneBar(v)
     for ρ = 0 : d
         (H, _) = induced_subgraph(G, neighborhood(G, v, ρ))
         new = 1 - nv(H) + ne(H)
+        # prepend as many rows as 1-cycles born at stage ρ
         for row = previouslyDone + 1 : new
             oneBar = vcat([ρ Inf], oneBar)
         end
+        # how many 1-cycles were born at this stage
         if ρ > 0
             cumul[ρ] = new - previouslyDone
         end
@@ -105,6 +89,8 @@ for v = 1 : n
     push!(barcodes, oneBar)
 end
 
+#= used to keep track of which vertices are bridges and which are cluster
+points. We start by assuming every vertex is a bridge =#
 clusterpoints = ones(Int64, n) # 1 for bridges, 2 for cluster points
 
 #= in the particular case of the shortest path filtration, the Wasserstein
@@ -121,6 +107,10 @@ end
 #= matrix of Wasserstein distances, where entry (i, j) is the Wasserstein distance
 between the 1-dim. persistence barcodes corresponding to vertices v_i and v_j =#
 wassDists = zeros(Float64, n, n)
+
+#= we are experimenting with using the diameter of the graph under the
+Wasserstein distance but it is not currently a great solution. It's better
+to enter values by hand for now =#
 global diam = 0.0
 
 for i = 1 : n
@@ -131,8 +121,8 @@ for i = 1 : n
 end
 
 #= given a vertex v known to be a cluster point, look at the neighbourhood of v
-consisting of all vertices distance <= d from v. For a given vertex w, if the
-Wasserstein distance between their 1-dimensional persistence diagrams is <= wd
+consisting of all vertices distance ≤ d from v. For a given vertex w, if the
+Wasserstein distance between their 1-dimensional persistence diagrams is ≤ wd
 then call w also a cluster point =#
 function cluster(v, d, wd)
     vertices = neighborhood(G, v, d)
@@ -156,18 +146,20 @@ function isClusterPointHelper(v)
     return((lastBorn, lastBorn))
 end
 
-function isClusterPoint2(v, jumpLimit)
+# implements the 1-cycle birth times test using the helper function above
+function isClusterPoint(v, jumpLimit)
     (jump, lastBorn) = isClusterPointHelper(v)
     return(jump < jumpLimit * lastBorn)
 end
 
+# find the value of q by incrementing until we identify any cluster points
 function findJumpLimit()
     jumpLimit = 0.05
     found = false
     while !found
         count = 0
         for v = 1 : n
-            if isClusterPoint2(v, jumpLimit)
+            if isClusterPoint(v, jumpLimit)
                 count += 1
             end
         end
@@ -186,15 +178,16 @@ function plotGraph()
     nodelabel = [1 : n;]
 
     jumpLimit = findJumpLimit()
-    println(jumpLimit)
 
     # identify the cluster points
     for v = 1 : n
-        if isClusterPoint2(v, jumpLimit)
-            cluster(v, 4, 30)
+        if isClusterPoint(v, jumpLimit)
+            cluster(v, 4, 14) #= varying the second value in cluster() greatly
+            affects the accuracy of the algorithm =#
             clusterpoints[v] = 2
         end
     end
+
     nodefillc = nodecolor[clusterpoints]
 
     gplot(G, nodelabel = nodelabel, nodefillc = nodefillc)

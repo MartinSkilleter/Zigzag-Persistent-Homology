@@ -104,6 +104,26 @@ end
 
 nbhdTest()
 
+# construct the Laplacian matrix
+L = zeros(n, n)
+for i = 1 : n
+    L[i, i] = degree(G, i)
+end
+
+L -= adjacency
+
+eigenDecomp = eigen(L)
+spectralGap = eigenDecomp.values[2]
+Fiedler = eigenDecomp.vectors[:,2]
+
+avg = sum(abs, Fiedler) / n
+
+function isClusterPoint(v)
+    return(abs(Fiedler[v]) > avg)
+end
+
+# generate a heatmap using 1-cycle birth times test
+
 global heatmap = zeros(Float64, n)
 
 function isClusterPoint2(v, jumpLimit)
@@ -135,7 +155,7 @@ function plotGraph()
 
     for i = 1 : n
         heatmap[i] /= M
-        push!(nodefillc, RGBA(heatmap[i], 0, 2*(1-heatmap[i])))
+        push!(nodefillc, GraphPlot.RGBA(heatmap[i], 0, 2*(1-heatmap[i])))
     end
 
     gplot(G, nodelabel = nodelabel, nodefillc = nodefillc)
